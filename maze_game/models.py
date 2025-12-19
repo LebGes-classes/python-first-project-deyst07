@@ -12,7 +12,7 @@ class Colors:
     RESET = '\033[0m'
 
     @staticmethod
-    def colorize(text, color):
+    def colorize(text, color) -> str:
         """Применяет ANSI-цвет к тексту и сбрасывает форматирование.
 
         Args:
@@ -22,23 +22,25 @@ class Colors:
         Returns:
             Строка с применённым цветом и сбросом в конце.
         """
+        
         return f"{color}{text}{Colors.RESET}"
 
 
 class Point:
     """Координаты точки на карте."""
 
-    def __init__(self, x, y):
+    def __init__(self, x, y) -> None:
         """Инициализирует точку с координатами.
 
         Args:
             x: Горизонтальная координата (столбец).
             y: Вертикальная координата (строка).
         """
+        
         self.x = x
         self.y = y
 
-    def __eq__(self, other):
+    def __eq__(self, other) -> bool:
         """Сравнивает две точки по координатам.
 
         Args:
@@ -47,13 +49,14 @@ class Point:
         Returns:
             True, если other — Point и координаты совпадают.
         """
+        
         return isinstance(other, Point) and self.x == other.x and self.y == other.y
 
 
 class MazeMap:
     """Карта лабиринта."""
 
-    def __init__(self, width, height):
+    def __init__(self, width, height) -> None:
         """Инициализирует карту лабиринта заданного размера.
 
         Размеры корректируются до нечётных.
@@ -62,6 +65,7 @@ class MazeMap:
             width: Желаемая ширина.
             height: Желаемая высота.
         """
+        
         self.width = width if width % 2 != 0 else width + 1
         self.height = height if height % 2 != 0 else height + 1
         # 1 - стена, 0 - проход, 2 - выход

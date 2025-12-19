@@ -4,7 +4,7 @@ import random
 class ManualGenerator:
     """Собственный алгоритм генерации (Recursive Backtracker)."""
 
-    def generate(self, maze):
+    def generate(self, maze) -> object:
         """Генерирует лабиринт с использованием рекурсивного вырезания.
 
         Args:
@@ -13,11 +13,13 @@ class ManualGenerator:
         Returns:
             Обновлённый объект MazeMap.
         """
+        
         self._carve(maze.start.x, maze.start.y, maze)
         maze.grid[maze.exit.y][maze.exit.x] = 2
+        
         return maze
 
-    def _carve(self, cx, cy, maze):
+    def _carve(self, cx, cy, maze) -> None:
         """Рекурсивно вырезает проходы из клетки (cx, cy).
 
         Args:
@@ -25,6 +27,7 @@ class ManualGenerator:
             cy: Текущая координата Y.
             maze: Объект MazeMap.
         """
+        
         maze.grid[cy][cx] = 0
         directions = [(0, -2), (0, 2), (-2, 0), (2, 0)]
         random.shuffle(directions)

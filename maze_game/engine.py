@@ -7,15 +7,17 @@ from services import Renderer, InputHandler
 class Game:
     """Основной игровой движок."""
 
-    def __init__(self):
+    def __init__(self) -> None:
         """Инициализирует игру с начальными параметрами."""
+        
         self.level = 1
         self.total_time = 0.0
         self.renderer = Renderer()
         self.input = InputHandler()
 
-    def start(self):
+    def start(self) -> None:
         """Запускает основной цикл игры с меню."""
+        
         while True:
             self.renderer.draw_menu(self.level)
             choice = self.input.get_key()
@@ -26,11 +28,12 @@ class Game:
                 self.input.get_key()
                 break
 
-    def _run_level(self):
+    def _run_level(self) -> None:
         """Запускает и управляет одним уровнем.
 
         Размер уровня: 11 + 2 * текущий_уровень → 13, 15, ...
         """
+        
         size = 11 + (self.level * 2)
         maze = MazeMap(size, size)
         ManualGenerator().generate(maze)
@@ -43,9 +46,11 @@ class Game:
             self.renderer.draw_game(maze, player, steps, elapsed)
             if maze.grid[player.y][player.x] == 2:
                 self.total_time += elapsed
+                self.renderer.draw_level_complete(self.level, steps, elapsed)
+                self.input.get_key()
                 self.level += 1
                 return
-            
+
             key = self.input.get_key()
             if key == 'q' or key == 'й':
                 self.total_time += elapsed
