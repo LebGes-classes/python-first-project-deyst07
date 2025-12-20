@@ -4,10 +4,11 @@ from engine import Game
 
 def main() -> None:
     """Точка входа в игру Neon Runner."""
-    # Активируем цвета в терминале Windows
     
+    # Активируем цвета в терминале Windows
     os.system('')
     game = Game()
+    
     try:
         game.start()
     except KeyboardInterrupt:
