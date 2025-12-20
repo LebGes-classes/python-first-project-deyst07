@@ -60,13 +60,13 @@ class Game:
                 return
 
             dx, dy = 0, 0
-            if key in ('w', 'ц', 'up'):
+            if key in ('w', 'ц', 'h'):
                 dy = -1
-            elif key in ('s', 'ы', 'down'):
+            elif key in ('s', 'ы', 'p'):
                 dy = 1
-            elif key in ('a', 'ф', 'left'):
+            elif key in ('a', 'ф', 'k'):
                 dx = -1
-            elif key in ('d', 'в', 'right'):
+            elif key in ('d', 'в', 'm'):
                 dx = 1
 
             new_x, new_y = player.x + dx, player.y + dy
