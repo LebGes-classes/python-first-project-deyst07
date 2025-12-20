@@ -60,13 +60,13 @@ class Game:
                 return
 
             dx, dy = 0, 0
-            if key in ('w', 'ц'):
+            if key in ('w', 'ц', 'up'):
                 dy = -1
-            elif key in ('s', 'ы'):
+            elif key in ('s', 'ы', 'down'):
                 dy = 1
-            elif key in ('a', 'ф'):
+            elif key in ('a', 'ф', 'left'):
                 dx = -1
-            elif key in ('d', 'в'):
+            elif key in ('d', 'в', 'right'):
                 dx = 1
 
             new_x, new_y = player.x + dx, player.y + dy
@@ -74,4 +74,3 @@ class Game:
                 if maze.grid[new_y][new_x] != 1:
                     player.x, player.y = new_x, new_y
                     steps += 1
-                    
