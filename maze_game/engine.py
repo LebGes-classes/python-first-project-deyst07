@@ -26,6 +26,7 @@ class Game:
             elif choice == '2':
                 self.renderer.draw_exit(self.total_time, self.level - 1)
                 self.input.get_key()
+                
                 break
 
     def _run_level(self) -> None:
@@ -49,11 +50,13 @@ class Game:
                 self.renderer.draw_level_complete(self.level, steps, elapsed)
                 self.input.get_key()
                 self.level += 1
+                
                 return
 
             key = self.input.get_key()
             if key == 'q' or key == 'й':
                 self.total_time += elapsed
+                
                 return
 
             dx, dy = 0, 0
@@ -71,3 +74,4 @@ class Game:
                 if maze.grid[new_y][new_x] != 1:
                     player.x, player.y = new_x, new_y
                     steps += 1
+                    

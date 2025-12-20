@@ -58,6 +58,7 @@ class Renderer:
                     line += "  "
         
             print(line + Colors.colorize("║", Colors.CYAN))
+       
         print(Colors.colorize("╚" + "══" * maze.width + "╝", Colors.CYAN))
         
         stats = f" ШАГИ: {steps:03} | ВРЕМЯ: {elapsed:05.1f}s | [Q] МЕНЮ "

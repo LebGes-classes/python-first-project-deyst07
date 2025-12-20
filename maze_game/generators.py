@@ -38,3 +38,4 @@ class ManualGenerator:
                 if maze.grid[ny][nx] == 1:
                     maze.grid[cy + dy // 2][cx + dx // 2] = 0
                     self._carve(nx, ny, maze)
+                    

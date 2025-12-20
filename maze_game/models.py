@@ -72,3 +72,4 @@ class MazeMap:
         self.grid = [[1 for _ in range(self.width)] for _ in range(self.height)]
         self.start = Point(1, 1)
         self.exit = Point(self.width - 2, self.height - 2)
+        
